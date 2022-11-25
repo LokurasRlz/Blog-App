@@ -11,7 +11,7 @@ RSpec.describe Like, type: :model do
     likes_counter: 0, user_id: user.id
   )
 
-  like = Like.create(post:, user: user)
+  like = Like.create(post:, user:)
 
   context 'update_likes_counter' do
     like.update_likes_counter
