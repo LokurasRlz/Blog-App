@@ -41,6 +41,12 @@ gem 'tzinfo-data'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+gem 'ffi', github: 'ffi/ffi', submodules: true
+
+group :development, :test do
+  gem 'rspec-rails'
+end
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
