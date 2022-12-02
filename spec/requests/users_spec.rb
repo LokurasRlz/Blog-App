@@ -15,12 +15,12 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'body should have correct  placeholder text' do
-      expect(response.body).to include('Here is a list of users')
+      expect(response.body).to include('Tom')
     end
   end
 
   it 'renders a page for specific user' do
-    user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
+    user = User.create(name: 'Tom', photo: 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png', bio: 'Teacher from Mexico.',
                        posts_counter: 0)
     get "/users/#{user.id}"
 
@@ -28,6 +28,6 @@ RSpec.describe 'Users', type: :request do
 
     expect(response).to render_template(:show)
 
-    expect(response.body).to include('Here is information about a given user')
+    expect(response.body).to include('Tom')
   end
 end

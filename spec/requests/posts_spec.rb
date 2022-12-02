@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
   before(:all) do
-    @user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
+    @user = User.create(name: 'Tom', photo: 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png', bio: 'Teacher from Mexico.',
                         posts_counter: 0)
   end
 
@@ -13,7 +13,7 @@ RSpec.describe 'Posts', type: :request do
 
     expect(response).to render_template(:index)
 
-    expect(response.body).to include('Here is a list of posts for a given user')
+    expect(response.body).to include('Tom')
   end
 
   it 'renders a page for specific post' do
@@ -25,6 +25,6 @@ RSpec.describe 'Posts', type: :request do
 
     expect(response).to render_template(:show)
 
-    expect(response.body).to include(' Post content for a given user')
+    expect(response.body).to include('Hello by Tom')
   end
 end
