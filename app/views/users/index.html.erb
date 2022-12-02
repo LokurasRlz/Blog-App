@@ -1,1 +1,8 @@
-<h1> Hello Code Reviewer !</h1>
+<h1> List all users </h1> 
+<ul class='list'>
+<% @user.each do |user| %>
+ <a href='/users/<%= user.id %>'>
+    <%= render 'partials/user', user: user %>
+ <a>
+<% end %>
+</ul>
