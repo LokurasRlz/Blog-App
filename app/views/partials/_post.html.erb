@@ -1,11 +1,14 @@
-<div class="user-posts container">
-  <h3 class="user-container_heading"><%= post.title %>
-    #<%= post.id %></h3>
-  <p class="user-container_text"><%= truncate(post.text, :length => 50) %></p>
-  <div class="user-posts_stats">
-    <p>Comments :
-      <%= post.comments_counter %></p>
-    <p>Likes:
-      <%= post.likes_counter %></p>
-  </div>
-</div>
+<li>
+ <h3> <% post.title%> </h3>
+ <p> <%= truncate(post.text, :length => 150) %> </p>
+ <strong>
+  <p class="placeholder stats">
+   Comments: <%= post.comments_counter %>,
+   Likes: <%= post.likes_counter %> </p>
+ </strong>
+ <ul>
+  <% post.comments.each do |comment| %>
+   <li> <%= comment.text %> </li>
+  <% end %>
+ </ul>
+</li>
