@@ -1,1 +1,14 @@
-<h2> This is a test </h2>
+<section class="posts">
+  <%= render partial: "partials/user", locals: {user: @user} %>
+  <% @posts.each do |current_post| %>
+    <div class="post-item">
+      <%= render partial: "partials/post", locals: {post: current_post} %>
+      <% if !current_post.comments.empty? %>
+        <div class="post-comments container">
+          <%= render partial: "partials/comment", collection: current_post.recent_comments %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <button class="pagination">Pagination</button>
+</section>

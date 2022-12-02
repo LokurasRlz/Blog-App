@@ -1,2 +1,9 @@
-<h1> Hello views </h1>
-<p> this is a test</p>
+<section class="user">
+  <%= render partial: "partials/user", locals: {user: @user_current} %>
+  <div class="user-bio container">
+    <h3 class="user-container_heading">Bio</h3>
+    <p class="user-container_text"><%= @user_current.bio %></p>
+  </div>
+  <%= render partial: "partials/post", collection: @user_current.recent_posts %>
+  <button class="see-all">See all posts</button>
+</section>
