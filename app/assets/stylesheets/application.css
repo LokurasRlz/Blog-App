@@ -1,243 +1,184 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
   text-decoration: none;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
   list-style: none;
-  transition: all 0.3s ease;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  color: #333;
-  background: #f5f5f5;
-  overflow-x: hidden;
+/* ### Users List ### */
+.users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 5%;
 }
 
-.list {
-  padding: 2rem 9%;
+.users-list_user {
+  display: flex;
+  gap: 30px;
 }
 
-.user-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 2rem;
+.users-list_img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 3px solid black;
 }
 
-.user-card .image-container {
-  width: 10rem;
-  height: 10rem;
-}
-
-.user-card .image-container img {
+.users-list_img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
 }
 
-.user-info {
-  width: 55rem;
-  box-shadow: 0.5rem 0.5rem 1rem rgb(0 0 0 / 5%);
+.users-list_desc {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20%;
+  align-items: center;
+  border: 3px solid black;
+  padding: 3%;
 }
 
-.user-info h3 {
-  margin-top: 3.5rem;
-  padding: 10px;
+.users-list_name {
+  font-size: 2.5rem;
 }
 
-.user-info p {
-  text-align: end;
-  margin-right: 1rem;
+.users-list_posts {
+  font-size: 1.5rem;
+  align-self: flex-end;
 }
 
-.bio {
-  width: 50%;
-  text-align: center;
-  margin: 0 auto;
-  box-shadow: 0.5rem 0.5rem 1rem rgb(0 0 0 / 5%);
-  padding: 1rem 0;
+/* ### User ### */
+.user {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.bio h3 {
-  margin-bottom: 1rem;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 1% 2%;
+  border: 3px solid black;
 }
 
-.bio p {
-  line-height: 1.5;
-  padding: 0 10px;
+.user-container_heading {
+  font-size: 1.5rem;
 }
 
-.btn a {
-  display: inline-block;
-  margin-top: 1rem;
-  border-radius: 5rem;
-  padding: 0.5rem;
-  box-shadow: 0.5rem 0.5rem 1rem rgb(0 0 0 / 5%);
-  color: coral;
-  cursor: pointer;
-  font-size: 1.1rem;
-  background: #fff;
+.user-container_text {
+  font-size: 1.5rem;
 }
 
-.card {
-  margin: 2rem 9%;
-  position: relative;
+.user-posts_stats {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-end;
 }
 
-.card a {
-  position: absolute;
-  left: 40%;
+.user-posts_stats p {
+  width: 100px;
+}
+
+button {
+  width: 140px;
+  height: 35px;
   font-size: 1.2rem;
-  box-shadow: 0.5rem 0.5rem 1rem rgb(0 0 0 / 5%);
-  border-radius: 0.5rem;
-  padding: 5px 10px;
-  z-index: 10;
-}
-
-.card p {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  margin-left: 2rem;
-}
-
-.card li {
-  box-shadow: 0.5rem 0.5rem 1rem rgb(0 0 0 / 5%);
-  margin-bottom: 1rem;
-  width: 50rem;
-  margin-left: 3rem;
-}
-
-.added h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.card li h3 {
-  padding: 15px;
-  font-size: 1.5rem;
-  text-transform: capitalize;
-}
-
-.placeholder {
-  text-align: end;
-  margin-right: 1rem;
-  padding-bottom: 1rem;
-}
-
-.post-list {
-  margin: 0 9%;
-}
-
-.post-list li {
-  box-shadow: 0.5rem 0.5rem 1rem rgb(0 0 0 / 5%);
-  margin-bottom: 1rem;
-  width: 50rem;
-  margin-left: 3rem;
-}
-
-.post-list li h3 {
-  padding: 15px;
-  font-size: 1.5rem;
-  text-transform: capitalize;
-}
-
-.back a {
-  display: inline-block;
-  margin: 1rem 0;
-  border-radius: 5rem;
-  padding: 0.5rem 1rem;
-  box-shadow: 0.5rem 0.5rem 1rem rgb(0 0 0 / 5%);
-  color: coral;
+  align-self: center;
+  box-shadow: 5px 5px;
+  outline: 1px solid black;
+  background-color: #fff;
+  font-weight: 700;
   cursor: pointer;
-  font-size: 1.1rem;
-  background: #fff;
 }
 
-.pagy {
-  text-align: center;
-  margin-top: 2rem;
+/* ### Posts_list ### */
+.posts {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.pagy-nav .page {
-  display: none;
+.post-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.page.prev,
-.page.next {
-  display: inline-block;
-  margin: 1rem 0;
-  border-radius: 5rem;
-  padding: 0.5rem 1rem;
-  box-shadow: 0.5rem 0.5rem 1rem rgb(0 0 0 / 5%);
-  color: coral;
-  cursor: pointer;
-  font-size: 1.1rem;
-  background: #fff;
+.comment {
+  display: flex;
+  font-size: 1.4rem;
 }
 
-.card-info {
-  box-shadow: 0.5rem 0.5rem 1rem rgb(0 0 0 / 5%);
-  margin-bottom: 1rem;
-  width: 50rem;
-  margin-left: 3rem;
+.comment p {
+  font-weight: 700;
 }
 
-.card-info p {
-  padding: 15px;
-  font-size: 1.2rem;
-  text-transform: capitalize;
+.comment p span {
+  font-weight: 400;
 }
 
-.card-info h4 {
-  padding: 15px;
-  font-size: 1.5rem;
-  text-transform: capitalize;
+/* ### Post ### */
+.single-post {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.post-list li h4 {
-  padding: 5px;
-}
-
-.span {
+.post-container_title {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
-  margin-bottom: 1rem;
 }
 
-.posts {
-  margin: 0 auto;
+.post-container_stats {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  gap: 30px;
+  justify-content: flex-end;
 }
 
-.action {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
+.post-container_stats p {
+  width: 100px;
 }
 
-.action button {
-  padding: 0.5rem 1rem;
-  border-radius: 5rem;
-  box-shadow: 0.5rem 0.5rem 1rem rgb(0 0 0 / 5%);
-  background: #fff;
-  cursor: pointer;
+.post-container_text {
+  font-size: 1.5rem;
+}
+
+.heart {
+  width: 20px;
+}
+
+.see-all {
+  width: 140px;
+  height: 35px;
   font-size: 1.2rem;
-  margin: 10px;
+  align-self: center;
+  box-shadow: 5px 5px;
+  outline: 1px solid black;
+  background-color: #fff;
+  font-weight: 700;
+  cursor: pointer;
 }
-
-.action button a {
-  display: flex;
-  align-items: center;
-}
-

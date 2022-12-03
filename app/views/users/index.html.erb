@@ -1,8 +1,3 @@
-<h1> List all users </h1> 
-<ul class='list'>
-<% @user.each do |user| %>
- <a href='/users/<%= user.id %>'>
-    <%= render 'partials/user', user: user %>
- <a>
-<% end %>
-</ul>
+<section class="users-list">
+  <%= render partial: "shared/user", collection: @users %>
+</section>
