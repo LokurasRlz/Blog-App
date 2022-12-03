@@ -1,11 +1,14 @@
-<section class='posts'>
-  <%= render'partials/user', user: @user %>
-    <% @posts.each do |post| %>
-   <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
-    <ul class="post-list">
-    <%= render 'partials/post', post: post %></ul>
-    </a>
-    </ul>
-    <% end %>
-  <button class='btn' type='button'>Pagination</button>
+<section class="posts">
+  <%= render partial: "shared/user", locals: {user: @user} %>
+  <% @posts.each do |current_post| %>
+    <div class="post-item">
+      <%= render partial: "shared/post", locals: {post: current_post} %>
+      <% if !current_post.comments.empty? %>
+        <div class="post-comments container">
+          <%= render partial: "shared/comment", collection: current_post.recent_comments %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <button class="pagination">Pagination</button>
 </section>

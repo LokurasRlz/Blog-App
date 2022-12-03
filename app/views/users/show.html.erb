@@ -1,16 +1,9 @@
-<div class="user">
-<%= render 'partials/user', user: @user %>
-<div class='bio'>
-<p><%= @user.bio %></p>
-</div>
-<ul class='card'>
-    <% @user.recent_three_posts.each do |post| %>
-      <a href="/users/<%= @user.id %>/posts/<%= post.id %> ">
-        <%= render 'partials/post', post: post %>
-      </a>
-    <% end %>
-</ul>
-
-  <p class='btn'><%= link_to "See all posts", user_posts_path(@user.id)%></p>
-</div>
-
+<section class="user">
+  <%= render partial: "shared/user", locals: {user: @user_current} %>
+  <div class="user-bio container">
+    <h3 class="user-container_heading">Bio</h3>
+    <p class="user-container_text"><%= @user_current.bio %></p>
+  </div>
+  <%= render partial: "shared/post", collection: @user_current.recent_posts %>
+  <p class="see-all pagination"><a href="/users/<%= @user_current.id %>/posts">See all posts<a></p>
+</section>
