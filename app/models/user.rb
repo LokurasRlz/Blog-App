@@ -1,13 +1,13 @@
 class User < ApplicationRecord
-  has_many :posts, foreign_key: 'author_id'
-  has_many :likes, foreign_key: 'author_id'
-  has_many :comments, foreign_key: 'author_id'
+  has_many :posts
+  has_many :comments, through: :posts
+  has_many :likes, through: :posts
 
-  after_create do
-    update(posts_counter: 0)
-  end
+  validates :name, presence: true
+  validates :posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
-  def recent_posts
-    posts.order(created_at: :desc).limit(3)
+  # Compare this snippet from app\models\post.rb:
+  def recent_three_posts
+    posts.limit(3).order(created_at: :desc)
   end
 end
