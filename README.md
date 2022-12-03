@@ -33,7 +33,7 @@
 
 # 📖 Blog App <a name="about-project"></a>
 
-**Blog App** is a fully functional website that shows the list of posts and empower users to interact with them by adding comments and liking posts.
+**Blog-App** is a fully functional website that shows the list of posts and empower users to interact with them by adding comments and liking posts.
 
 ## 🛠 Built With <a name="built-with"></a>
 
