@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Post Show Page', type: :feature do
   before(:all) do
-    @user = User.find(2)
+    @user = User.find(3)
     @post = @user.posts.take
   end
 
@@ -29,13 +29,6 @@ RSpec.describe 'Post Show Page', type: :feature do
   it 'displays the number of likes' do
     expect(page).to have_content("Likes: #{@post.likes_counter}")
   end
-
-  it 'displays the username and comment of each commentor' do
-    @post.comments.includes(:author).each do |comment|
-      expect(page).to have_content("#{comment.author.name}: #{comment.text}")
-    end
-  end
-end
 
   it 'displays the username and comment of each commentor' do
     @post.comments.includes(:author).each do |comment|
