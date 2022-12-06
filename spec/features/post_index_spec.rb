@@ -49,3 +49,10 @@ RSpec.describe 'Post Index Page', type: :feature do
     expect(current_path).to eql(user_post_path(@user.id, post.id))
   end
 end
+
+  it 'link button redirects to post show page' do
+    post = @user.posts.take
+    click_link(@post_current.author.name, href: user_post_path(@user.id, post.id))
+    expect(current_path).to eql(user_post_path(@user.id, post.id))
+  end
+end

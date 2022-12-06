@@ -36,3 +36,10 @@ RSpec.describe 'Post Show Page', type: :feature do
     end
   end
 end
+
+  it 'displays the username and comment of each commentor' do
+    @post.comments.includes(:author).each do |comment|
+      expect(page).to have_content("#{comment.author.name}: #{comment.text}")
+    end
+  end
+end
