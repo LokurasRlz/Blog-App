@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Post Show Page', type: :feature do
   before(:all) do
-    @user = User.find(3)
+    @user = User.find(2)
     @post = @user.posts.take
   end
 
