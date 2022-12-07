@@ -45,6 +45,8 @@ gem 'ffi', github: 'ffi/ffi', submodules: true
 
 gem 'foreman'
 
+gem 'devise'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
