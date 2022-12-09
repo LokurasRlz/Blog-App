@@ -89,6 +89,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 6.0.0.rc1'
+  gem 'rswag-specs'
 end
 
 group :test do
