@@ -5,7 +5,21 @@
 # are not: uncommented lines are intended to protect your configuration from
 # breaking changes in upgrades (i.e., in the event that future versions of
 # Devise change the default values for those options).
-#
+
+class TurboFailureApp < Devise::FailureApp
+  def respond
+    if request_format == :turbo_stream
+      redirect
+    else
+      super
+    end
+  end
+
+  def skip_format?
+    %w(html turbo_stream */*).include? request_format.to_s
+  end
+end
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -14,7 +28,15 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '9e1aba59d73a51f16dc2d068f4b1b53ea9394d2c69fd486c2b329e4644cbec60be236e5195ad2924026c362d2afa006e643859e77613123fc87e171d28bfb0c0'
+  # config.secret_key = 'd62e0cc4535b0fb6121a4d2db42856a9db3960625d4b5edd993f4da5406bc2123872b6a6ad3fbf86e6aca9fde00d032514c4cd3561996dea3b9b0194b69576a5'
+
+  
+  config.parent_controller = 'TurboController'
+
+  # ==> Warden configuration
+  config.warden do |manager|
+    manager.failure_app = TurboFailureApp
+  end
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -24,7 +46,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'nicholasemmanuel321@gmail.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -126,7 +148,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '99e89bda445ed46707f1f29f2ee4e2f1358c94e9c69b1a75a4db8b0e23b25971c9a26160b50ede138830cfd57f46566a1e9ec685f054b77f11164e65fa1e9d7b'
+  # config.pepper = 'e4a9defe9500619207ad9c540082e13cb4f32a51131b2abb80bea3ee65c4457b4d38215736dc15cdf6f347b0c297ccba28ac115bbc2a347f3a9cd66e62f5abe2'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
