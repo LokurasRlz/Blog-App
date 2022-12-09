@@ -317,6 +317,7 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails (~> 6.0.0.rc1)
   rswag
+  rswag-specs
   rubocop (>= 1.0, < 2.0)
   selenium-webdriver
   sprockets-rails
